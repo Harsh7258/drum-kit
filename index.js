@@ -1,17 +1,22 @@
 var numberOfButtons = document.querySelectorAll(".drum").length;
+// selecting all class (.drum) and the its length
+
 for(var i = 0; i < numberOfButtons; i++){
+    //looping through all drum classes
+
     document.querySelectorAll(".drum")[i].addEventListener("click", 
     function (){
         var buttonInnerhtml = this.innerHTML;
         makeSound(buttonInnerhtml);
         btnAnimation(buttonInnerhtml);
-
+        // onClick the inner html do some work
 });
 }
 
 document.addEventListener("keypress", function(event){
     makeSound(event.key);
-    btnAnimation(event.key)
+    btnAnimation(event.key);
+    // on keypress do same as on click
 });
 
 function makeSound(key){
@@ -48,8 +53,8 @@ function makeSound(key){
         default:
    console.log(buttonInnerhtml);
        }
-
 }
+// switch to select the given keypress
 
 function btnAnimation(currentKey){
     var activeButton = document.querySelector("." + currentKey);
@@ -58,3 +63,4 @@ function btnAnimation(currentKey){
         activeButton.classList.remove("pressed");
     }, 120);
 }
+// click ya keypress pe pressed class add hogi uske 120milisecond haat jaaegi
